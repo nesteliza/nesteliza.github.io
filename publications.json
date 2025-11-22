@@ -1,0 +1,43 @@
+{
+  "publications": [
+    {
+      "title": "Optimal Reconstruction Bounds from Approximate Linear Queries",
+      "authors": [
+        "Yuval Filmus",
+        "Shay Moran",
+        "Elizaveta Nesterova"
+      ],
+      "venue": "in preparation (2025)",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "project": ""
+      }
+    },
+    {
+      "title": "Reconstruction and Secrecy under Approximate Distance Queries",
+      "authors": [
+        "Shay Moran",
+        "Elizaveta Nesterova"
+      ],
+      "venue": "NeurIPS 2025",
+      "selected": 1,
+      "award": "Spotlight",
+      "links": {
+        "pdf": "https://www.arxiv.org/abs/2511.06461"
+      }
+    },
+    {
+      "title": "Unipotent Modules and the Bar-complex",
+      "authors": [
+        "Elizaveta Nesterova"
+      ],
+      "venue": "Bachelor thesis (2021)",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "project": "https://www.hse.ru/en/en/ba/math/students/diplomas/page8.html/474497763"
+      }
+    }
+  ]
+}
