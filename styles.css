@@ -367,8 +367,8 @@ p {
 }
 
 strong {
-  font-weight: 600;
-  color: var(--accent-color);
+  font-weight: 800;
+  color: #000000;
 }
 
 /* Modal styles */
