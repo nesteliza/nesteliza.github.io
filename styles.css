@@ -35,8 +35,8 @@ header {
 }
 
 .header-image img {
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--border-color);
@@ -51,12 +51,21 @@ header {
 h1 {
   font-size: 2.2rem;
   font-weight: 500;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0rem;
   letter-spacing: -0.02em;
 }
 
+.h2-special {
+  font-size: 1.1rem;
+  color: #6d6d6d;
+  margin-top: 0rem;
+  font-weight: 300;
+  border-bottom: 0px;
+  letter-spacing: -0.01em;
+}
+
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.4 rem;
   font-weight: 500;
   margin: 1.75rem 0 1rem;
   padding-bottom: 0.5rem;
@@ -136,7 +145,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .toggle-publications {
