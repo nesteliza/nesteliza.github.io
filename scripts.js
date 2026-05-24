@@ -97,7 +97,7 @@ function createPublicationElement(publication) {
   if (Array.isArray(publication.authors)) {
     publication.authors.forEach((author, index) => {
       // If you want to highlight yourself, change 'Author 3' to 'Nesterova' later
-      if (author.includes('Author 3')) { // TODO: adjust or remove
+      if (author.includes('Nesterova')) {
         authorsHTML += `<span class="highlight-name">${author}</span>`;
       } else {
         authorsHTML += author;
@@ -172,7 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
     copyLink.addEventListener('click', (e) => {
       e.preventDefault();
       navigator.clipboard.writeText('elizavetan@campus.technion.ac.il')
-        .then(() => alert('Email address copied to clipboard.'))
+        .then(() => {
+          const original = copyLink.innerHTML;
+          copyLink.innerHTML = '<i class="fas fa-check"></i>Copied!';
+          setTimeout(() => { copyLink.innerHTML = original; }, 2000);
+        })
         .catch(err => console.error('Could not copy email: ', err));
     });
   }
