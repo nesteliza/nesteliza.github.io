@@ -1,6 +1,22 @@
 {
   "publications": [
     {
+      "title": "Strategic PAC Learnability via Geometric Definability",
+      "authors": [
+        "Yuval Filmus",
+        "Shay Moran",
+        "Elizaveta Nesterova",
+        "Nir Rosenfeld",
+        "Alexander Shlimovich"
+      ],
+      "venue": "Submitted, 2026",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/abs/2605.13426"
+      }
+    },
+    {
       "title": "Optimal Reconstruction from Linear Queries",
       "authors": [
         "Yuval Filmus",
@@ -9,7 +25,7 @@
       ],
       "venue": "COLT 2026",
       "selected": 1,
-      "award": "",
+      "award": "Best Paper Award",
       "links": {
         "pdf": "https://arxiv.org/abs/2605.19625"
       }
