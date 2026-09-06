@@ -181,3 +181,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ---------------------------------------------------------------
+// Theme toggle
+// Three states: explicit "dark", explicit "light", or no stored
+// choice, in which case the OS preference wins via CSS media query.
+// ---------------------------------------------------------------
+(function () {
+  var STORAGE_KEY = 'theme';
+
+  function storedTheme() {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      // Private browsing or blocked site data: fall back to OS preference.
+      return null;
+    }
+  }
+
+  function isDark() {
+    var stored = storedTheme();
+    if (stored) return stored === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function syncButton(button) {
+    if (!button) return;
+    var dark = isDark();
+    button.innerHTML = dark
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+    button.setAttribute(
+      'aria-label',
+      dark ? 'Switch to light theme' : 'Switch to dark theme'
+    );
+  }
+
+  // The stored choice is applied by the inline script in <head>,
+  // which runs before first paint.
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('theme-toggle');
+    syncButton(button);
+
+    if (!button) return;
+    button.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch (e) {
+        // Preference just won't persist across visits.
+      }
+      syncButton(button);
+    });
+
+    // Follow the OS while the visitor has made no explicit choice.
+    window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', function () {
+        if (!storedTheme()) syncButton(button);
+      });
+  });
+})();

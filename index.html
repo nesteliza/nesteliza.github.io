@@ -14,14 +14,22 @@
     <meta property="og:title"
         content="Elizaveta (Liza) Nesterova | PhD Student in Mathematics, Technion">
     <meta property="og:description"
-        content="PhD Student in Mathematics">
-    <meta property="og:url" content="https://www.nesteliza.com">
-    <!-- Optional but recommended if you have a nice image -->
-    <meta property="og:image" content="images/profile.jpg">
+        content="PhD student at the Technion working on the interaction between geometry and learning theory.">
+    <meta property="og:url" content="https://www.nesteliza.com/">
+    <!-- Absolute URL required: relative paths break previews on Slack/X/WhatsApp -->
+    <meta property="og:image" content="https://www.nesteliza.com/images/profile.jpg">
 
     <!-- Twitter -->
-    <!-- Remove this next line if you don't want to show a handle yet -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title"
+        content="Elizaveta (Liza) Nesterova | PhD Student in Mathematics, Technion">
+    <meta name="twitter:description"
+        content="PhD student at the Technion working on the interaction between geometry and learning theory.">
+    <meta name="twitter:image" content="https://www.nesteliza.com/images/profile.jpg">
     <!-- <meta name="twitter:creator" content="@yourhandle"> -->
+
+    <link rel="canonical" href="https://www.nesteliza.com/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234a74b9'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='white' text-anchor='middle'%3EEN%3C/text%3E%3C/svg%3E">
 
     <title>Elizaveta (Liza) Nesterova | PhD Student in Mathematics, Technion</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;500;600&display=swap">
@@ -32,18 +40,38 @@
         "@context": "http://schema.org",
         "@type": "Person",
         "name": "Elizaveta Nesterova",
-        "url": "https://nesteliza.com",
+        "url": "https://www.nesteliza.com/",
         "affiliation": {
             "@type": "Organization",
             "name": "Technion – Israel Institute of Technology"
         },
         "jobTitle": "PhD Student in Mathematics",
-        "knowsAbout": ["Algebraic Geometry", "Reconstruction Games", "Learning Theory", "Mathematics"],
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Technion \u2013 Israel Institute of Technology"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "HSE University"
+            }
+        ],
+        "knowsAbout": ["Learning Theory", "PAC Learning", "Reconstruction Games", "Algebraic Geometry", "Mathematics"],
         "sameAs": [
             "https://scholar.google.com/citations?user=4eRQZowAAAAJ",
             "https://www.linkedin.com/in/elizaveta-nesterova-4835902b4/"
         ]
         }
+    </script>
+    <script>
+        // Runs before first paint so a dark-theme visitor never sees a
+        // light flash. The rest of the toggle lives in scripts.js.
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t) document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { /* blocked storage: fall through to the OS preference */ }
+        })();
     </script>
     <meta name="google-site-verification" content="zfz1IRzDcTYdyUuZ8a0SvfmU2TdWZ2Gt3vB3Z2fp8hE" />
 </head>
@@ -65,7 +93,19 @@
                 <a href="#" id="copy-email-link">
                     <i class="fas fa-envelope"></i>Email: click to copy
                 </a>
+                <button id="theme-toggle" class="theme-toggle" type="button"
+                        aria-label="Switch to dark theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
+            <nav class="section-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                </ul>
+            </nav>
         </div>
         <div class="header-image">
             <img src="images/profile.jpg" alt="Profile Photo">
@@ -78,23 +118,22 @@
             I’m Elizaveta (Liza) Nesterova, a PhD student at the Technion, advised by <a href="https://shaymrn.cs.technion.ac.il/">Shay Moran</a> and <a href="https://yuvalfilmus.cs.technion.ac.il/">Yuval Filmus</a>. Broadly, I am interested in the interaction between geometry and learning theory.
             </p>
             <p>
-            Previously, I worked in algebraic geometry. During my undergraduate studies, I worked with Sergey Gorchinskiy on topics involving unipotent modules and homological methods. Later, in my master’s studies, I worked with Howard Nuer on problems in birational geometry and Bridgeland stability of moduli spaces.
+            Previously, I worked in algebraic geometry. During my undergraduate studies, I worked with <a href="https://www.mathnet.ru/eng/person18422">Sergey Gorchinskiy</a> on topics involving unipotent modules and homological methods. Later, in my master’s studies, I worked with <a href="https://sites.google.com/site/howardnuermath/">Howard Nuer</a> on problems in birational geometry and Bridgeland stability of moduli spaces.
             </p>
         </section>
 
+        <!-- NEWS: removed 2026-09-06 — every item was an award, and Awards
+             now carries them. Bring this back when there is news that is not a
+             prize (a preprint, a talk, a visit). Styles are still in styles.css.
         <section id="news">
             <h2>News</h2>
             <div class="news-container">
                 <ul class="news-list">
-                    <li>
-                        [2026]: Our paper <em>“Optimal Reconstruction from Linear Queries”</em> received the Best Paper Award at COLT 2026!
-                    </li>
-                    <li>
-                        [2025]: Our paper <em>“Reconstruction and Secrecy under Approximate Distance Queries”</em> is accepted to NeurIPS 2025 as a Spotlight!
-                    </li>
+                    <li>[YYYY]: [Item]</li>
                 </ul>
             </div>
         </section>
+        -->
 
         <section id="publications">
             <div class="publications-header">
@@ -106,78 +145,141 @@
             </div>
         </section>
 
-        <!-- <section id="awards">
-            <h2>Awards</h2>
-            <div class="award-item">
-                <span class="award-year">[YYYY]</span>
-                <div class="award-desc">[Award 1]</div>
-            </div>
-            <div class="award-item">
-                <span class="award-year">[YYYY]</span>
-                <div class="award-desc">[Award 2]</div>
-            </div>
-            <div class="award-item">
-                <span class="award-year">[YYYY]</span>
-                <div class="award-desc">[Award 3]</div>
-            </div>
-            <div class="award-item">
-                <span class="award-year">[YYYY]</span>
-                <div class="award-desc">[Award 4]</div>
-            </div>
-            <div class="award-item">
-                <span class="award-year">[YYYY]</span>
-                <div class="award-desc">[Award 5]</div>
-            </div>
-            <div class="award-item">
-                <span class="award-year">[YYYY]</span>
-                <div class="award-desc">[Award 6]</div>
-            </div>
-        </section> -->
-
-        <!-- <section id="services">
+        <section id="education">
             <h2>Education</h2>
 
-            <div class="service-category">
-                <div class="service-title">PhD</div>
-                <p>[Conference 1 YYYY], [Conference 2 YYYY], [Conference 3 YYYY], [Conference 4 YYYY], [Journal 1 YYYY], [Journal 2 YYYY]</p>
+            <div class="edu-item">
+                <span class="edu-year">2024&ndash;present</span>
+                <div class="edu-desc">
+                    <span class="edu-degree">PhD in Mathematics</span>,
+                    <span class="edu-place">Technion &ndash; Israel Institute of Technology</span>
+                    <span class="edu-detail">
+                        Advised by <a href="https://shaymrn.cs.technion.ac.il/">Shay Moran</a>
+                        and <a href="https://yuvalfilmus.cs.technion.ac.il/">Yuval Filmus</a>.
+                        Learning theory and reconstruction games.
+                    </span>
+                </div>
             </div>
 
-            <div class="service-category">
-                <div class="service-title">Masters</div>
-                <p>[Conference 1 YYYY], [Conference 2 YYYY], [Conference 3 YYYY], [Conference 4 YYYY], [Journal 1 YYYY], [Journal 2 YYYY]</p>
+            <div class="edu-item">
+                <span class="edu-year">2022&ndash;2024</span>
+                <div class="edu-desc">
+                    <span class="edu-degree">MSc in Mathematics</span>,
+                    <span class="edu-place">Technion &ndash; Israel Institute of Technology</span>
+                    <span class="edu-detail">
+                        Advised by <a href="https://sites.google.com/site/howardnuermath/">Howard Nuer</a>.
+                        Birational geometry and Bridgeland
+                        stability of moduli spaces.
+                    </span>
+                </div>
             </div>
 
-            <div class="service-category">
-                <div class="service-title">Bachelor's</div>
-                <p>[Conference 1 YYYY], [Conference 2 YYYY], [Conference 3 YYYY], [Conference 4 YYYY], [Journal 1 YYYY], [Journal 2 YYYY]</p>
-            </div> 
+            <div class="edu-item">
+                <span class="edu-year">2016&ndash;2021</span>
+                <div class="edu-desc">
+                    <span class="edu-degree">BSc in Mathematics</span>,
+                    <span class="edu-place">HSE University</span>
+                    <span class="edu-detail">
+                        Thesis:
+                        <a href="https://www.hse.ru/en/edu/vkr/474497763"><em>Unipotent Modules and the Bar-complex</em></a>,
+                        advised by <a href="https://www.mathnet.ru/eng/person18422">Sergey Gorchinskiy</a>.
+                    </span>
+                </div>
+            </div>
+        </section>
 
-             <div class="service-category">
+        <section id="awards">
+            <h2>Awards &amp; Fellowships</h2>
+
+            <div class="award-item">
+                <span class="award-year">2026</span>
+                <div class="award-desc">
+                    Prof. Haim Hanani Memorial Prize
+                    <small>
+                        Awarded annually to an outstanding graduate student in the
+                        Faculty of Mathematics, Technion.
+                    </small>
+                </div>
+            </div>
+
+            <div class="award-item">
+                <span class="award-year">2026</span>
+                <div class="award-desc">
+                    Best Paper Award, COLT 2026
+                    <small>
+                        For <em>Optimal Reconstruction from Linear Queries</em>.
+                    </small>
+                </div>
+            </div>
+
+            <div class="award-item">
+                <span class="award-year">2025&ndash;26</span>
+                <div class="award-desc">
+                    Milner Fellowship for PhD Students
+                    <small>
+                        Excellence fellowship, Technion Graduate School.
+                    </small>
+                </div>
+            </div>
+
+            <div class="award-item">
+                <span class="award-year">2025</span>
+                <div class="award-desc">
+                    Spotlight, NeurIPS 2025
+                    <small>
+                        For <em>Reconstruction and Secrecy under Approximate Distance Queries</em>.
+                    </small>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             Scaffolds, ready to uncomment once there is content for them.
+             Each is deliberately left out rather than shown near-empty.
+             (Awards graduated out of here once there were four entries.)
+             If you enable one, add a matching link to .section-nav above.
+             ============================================================ -->
+
+        <!-- TEACHING: courses TA'd, most recent first.
+        <section id="teaching">
+            <h2>Teaching</h2>
+            <div class="edu-item">
+                <span class="edu-year">[Term YYYY]</span>
+                <div class="edu-desc">
+                    <span class="edu-degree">[Course name]</span>
+                    <span class="edu-detail">Teaching assistant, Technion.</span>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- TALKS: conference talks and posters.
+        <section id="talks">
+            <h2>Talks</h2>
+            <div class="edu-item">
+                <span class="edu-year">[MMM YYYY]</span>
+                <div class="edu-desc">
+                    <span class="edu-degree">[Talk title]</span>
+                    <span class="edu-detail">[Venue], [Location].</span>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- SERVICE: reviewing and community work.
+        <section id="service">
+            <h2>Service</h2>
+            <div class="service-category">
                 <div class="service-title">Reviewer</div>
-                <p>[Conference 1 YYYY], [Conference 2 YYYY], [Conference 3 YYYY], [Conference 4 YYYY], [Journal 1 YYYY], [Journal 2 YYYY]</p>
+                <p>[Venue YYYY], [Venue YYYY]</p>
             </div>
+        </section>
+        -->
 
-            <div class="service-category">
-                <div class="service-title">Teaching Assistant</div>
-                <p><a href="#">[Course Code 1]</a>, <a href="#">[Course Code 2]</a></p>
-            </div>
-
-            <div class="service-category">
-                <div class="service-title">Volunteer</div>
-                <p>[Role 1], [Role 2], [Role 3]</p>
-            </div> 
-        </section>-->
-
-        <!-- <section id="miscellaneous">
-            <h2>Miscellaneous</h2>
-            <div class="misc-item">
-                <p>[Optional] Share your hobbies and interests here.</p>
-            </div>
-        </section> -->
     </main>
 
     <footer>
-        <p>Last updated: June 2026. <a href="https://github.com/yuhui-zh15/Minimal-Academic-Website/"> Website template & source.</a></p>
+        <p>Last updated: September 2026. <a href="https://github.com/yuhui-zh15/Minimal-Academic-Website/"> Website template & source.</a></p>
     </footer>
 
     <div id="imageModal" class="modal">

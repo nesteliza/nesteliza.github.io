@@ -5,6 +5,11 @@
   --accent-color: #4a74b9;
   --accent-hover: #3a5c9e;
   --border-color: #e2e8f0;
+  --muted-color: #6d6d6d;
+  --award-color: #c0392b;
+  --strong-color: #000000;
+  --accent-soft: rgba(74, 116, 185, 0.08);
+  --accent-faint: rgba(74, 116, 185, 0.2);
   --shadow-color: rgba(0,0,0,0.05);
   --animation-offset: 3px;
   --transition-time: 0.3s;
@@ -57,7 +62,7 @@ h1 {
 
 .h2-special {
   font-size: 1.1rem;
-  color: #6d6d6d;
+  color: var(--muted-color);
   margin-top: 0rem;
   font-weight: 300;
   border-bottom: 0px;
@@ -97,7 +102,7 @@ nav a, .social-links-header a {
 
 nav a:hover, .social-links-header a:hover {
   color: var(--accent-color);
-  background-color: rgba(74, 116, 185, 0.08);
+  background-color: var(--accent-soft);
   transform: translateX(var(--animation-offset));
 }
 
@@ -149,7 +154,7 @@ section {
 }
 
 .toggle-publications {
-  background-color: rgba(74, 116, 185, 0.08);
+  background-color: var(--accent-soft);
   color: var(--accent-color);
   border: none;
   padding: 0.5rem 1rem;
@@ -234,7 +239,7 @@ section {
 .pub-award {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #c0392b;
+  color: var(--award-color);
   white-space: nowrap;
 }
 
@@ -250,37 +255,44 @@ section {
   transition: all var(--transition-time) ease;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  background-color: rgba(74, 116, 185, 0.08);
+  background-color: var(--accent-soft);
 }
 
 .pub-links a:hover {
   color: #fff;
   background-color: var(--accent-color);
   transform: translateX(3px);
-  box-shadow: 0 2px 5px rgba(74, 116, 185, 0.2);
+  box-shadow: 0 2px 5px var(--accent-faint);
 }
 
-/* Awards section */
+/* Awards section
+   Same year + description row as Education, so the two read as one system. */
 .award-item {
   display: flex;
   align-items: baseline;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.85rem;
 }
 
 .award-year {
   font-weight: 500;
   color: var(--accent-color);
-  flex: 0 0 80px;
+  flex: 0 0 110px;
+  font-size: 0.9rem;
 }
 
 .award-desc {
   flex: 1;
+  font-weight: 500;
 }
 
+/* Each award carries a sub-line, so it needs its own row rather than
+   trailing inline after the name. */
 .award-desc small {
-  font-size: 0.85rem;
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 300;
   color: var(--text-secondary);
-  margin-left: 0.5rem;
+  margin-top: 0.15rem;
 }
 
 /* News section */
@@ -304,7 +316,7 @@ section {
 .news-list li {
   margin-bottom: 0.9rem;
   padding-left: 0.9rem;
-  border-left: 2px solid rgba(74, 116, 185, 0.2);
+  border-left: 2px solid var(--accent-faint);
   padding-bottom: 0.7rem;
 }
 
@@ -359,7 +371,7 @@ p {
 
 strong {
   font-weight: 800;
-  color: #000000;
+  color: var(--strong-color);
 }
 
 /* Modal styles */
@@ -442,5 +454,156 @@ strong {
   .service-category:hover, .misc-item:hover, .news-list li:hover,
   nav a:hover, .social-links-header a:hover, .pub-links a:hover {
     transform: none !important;
+  }
+}
+
+/* ============================================================
+   Dark theme
+   Light palette lives on bare :root above. Only tokens are
+   redefined here, so every rule works in both themes.
+   ============================================================ */
+:root {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg-color: #16181d;
+    --text-color: #dde1e7;
+    --text-secondary: #a3acb9;
+    --accent-color: #7aa2e3;
+    --accent-hover: #9dbcf0;
+    --border-color: #2c313a;
+    --muted-color: #8c95a1;
+    --award-color: #e8836f;
+    --strong-color: #ffffff;
+    --accent-soft: rgba(122, 162, 227, 0.12);
+    --accent-faint: rgba(122, 162, 227, 0.28);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #16181d;
+  --text-color: #dde1e7;
+  --text-secondary: #a3acb9;
+  --accent-color: #7aa2e3;
+  --accent-hover: #9dbcf0;
+  --border-color: #2c313a;
+  --muted-color: #8c95a1;
+  --award-color: #e8836f;
+  --strong-color: #ffffff;
+  --accent-soft: rgba(122, 162, 227, 0.12);
+  --accent-faint: rgba(122, 162, 227, 0.28);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================
+   Section navigation
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+.section-nav {
+  margin: 0.25rem 0 0;
+}
+
+.section-nav ul {
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.section-nav a {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.55rem;
+}
+
+section {
+  scroll-margin-top: 1.5rem;
+}
+
+/* ============================================================
+   Theme toggle
+   ============================================================ */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: all var(--transition-time) ease;
+  line-height: inherit;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-color);
+  background-color: var(--accent-soft);
+}
+
+/* ============================================================
+   Education
+   Reuses the year + description row pattern from Awards.
+   ============================================================ */
+.edu-item {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.85rem;
+  transition: transform var(--transition-time) ease;
+}
+
+.edu-item:hover {
+  transform: translateX(var(--animation-offset));
+}
+
+.edu-year {
+  font-weight: 500;
+  color: var(--accent-color);
+  flex: 0 0 110px;
+  font-size: 0.9rem;
+}
+
+.edu-desc {
+  flex: 1;
+}
+
+.edu-degree {
+  font-weight: 500;
+}
+
+.edu-place {
+  color: var(--text-secondary);
+}
+
+.edu-detail {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 768px) {
+  .edu-item,
+  .award-item {
+    flex-direction: column;
+  }
+
+  .edu-year,
+  .award-year {
+    flex: none;
+  }
+
+  .edu-item:hover {
+    transform: none !important;
+  }
+
+  .section-nav ul {
+    justify-content: center;
   }
 }
